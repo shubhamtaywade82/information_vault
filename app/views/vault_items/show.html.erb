@@ -1,0 +1,36 @@
+<h3 align="center"><%= t(".vault_item") %></h3>
+<% if @vault_item.vault_item_credentials.empty? %>
+  <h4 align="center"><%= t(".no_credentials") %></h4>
+  <%= link_to t(".add_credential"), edit_vault_item_path, class: "btn btn-primary" %>
+<% else %>
+  <h2 align="center"><%= @vault_item.title %></h2>
+  <table class="table" >
+    <tr>
+      <th><%= t(".attribute") %></th>
+      <th><%= t(".value") %></th>
+    </tr>
+    <% @vault_item.vault_item_credentials.each do |credential| %>
+      <tr>
+        <td><%= credential.credential_attr.name %></td>
+        <td><%= credential.decrypted_value %> </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+<div align="center">
+  <% if @vault_item.can_be_managed_by?(current_user)%>
+    <%= link_to t(".edit"), edit_vault_item_path, class: "btn btn-danger mr-3" %>
+  <% end %>
+  <%= link_to t(".back"), vault_items_path, class: "btn btn-secondary" %>
+</div>
+<% if @vault_item.can_be_managed_by?(current_user)%>
+  <div align="center">
+    <%= link_to t(".grant"), new_vault_item_access_path(vault_item_id: @vault_item.id), class: "btn btn-warning mt-4" %>
+  </div>
+<% end %>
+<hr>
+<h2><%= t(".access_to") %>
+  <% if @vault_item.can_be_managed_by?(current_user)%>
+    <%= link_to t(".view"), vault_item_accesses_path(@vault_item.id), class: "btn btn-sm btn-primary ml-3" %>
+  <% end %></h2>
+<%= render "vault_items/accesses/list", vault_item: @vault_item %>

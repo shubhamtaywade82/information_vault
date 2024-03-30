@@ -1,0 +1,30 @@
+<h2 align="center"><%= t('.grant_access') %></h2>
+<%= form_for @vault_item_access do |f| %>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-3">
+        <%= f.label :accessor_id, class: "label" %>
+      </div>
+      <div class="col-8">
+        <% # f.collection_select :accessor_id, User.all, :id, :username_email, { prompt: t('.select_user')}, { class: "form-control shadow rounded" } %>
+        <% # f.select :accessor_id, User.all.collect { |option| ["#{option.username} - #{option.email}", option.id] }, { prompt: t('.select_user') , class: "form-control shadow rounded" } %>
+        <%= f.select :accessor_id, User.all.collect { |option| [option.username_email, option.id] }, { prompt: t(".select_user"), class: "form-control shadow rounded" } %>
+        <%= @vault_item_access.errors[:accessor_id].first %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-3">
+        <%= f.label :expire_at, t(".valid_until") %>
+      </div>
+      <div class="col-6">
+        <%= f.date_field :expire_at, class: "form-control shadow rounded" %>
+        <%= @vault_item_access.errors[:expire_at].first %>
+      </div>
+    </div>
+  </div>
+  <div class="from-group" align='right'>
+    <%= f.submit t('.grant'), class: "btn btn-primary" %>
+  </div>
+<% end %>

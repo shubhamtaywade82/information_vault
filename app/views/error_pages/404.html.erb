@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h1>
+    <%= t "errors.heading" %>
+    <small><%= t "errors.subheading" %></small>
+  </h1>
+</div>
+<p><%= t "errors.description" %></p>
+<% if defined? root_path %>
+  <%= link_to t(:return_to_home), root_path %>
+<% end %>

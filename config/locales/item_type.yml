@@ -1,0 +1,16 @@
+en:
+  enumerations:
+    item_type:
+      api_integration: 'Api_integration'
+      cloud_workspace: 'Cloud_workspace'
+      git: 'Git'
+      gmail: 'Gmail'
+      microsoft_office: 'Microsoft_office'
+      mysql: 'Mysql'
+      oracle: 'Oracle'
+      php_my_admin: 'Php_my_admin'
+      postgres: 'Postgres'
+      sql_developer: 'Sql_developer'
+      ssh: 'Ssh'
+      system: 'System'
+      web_portal: 'Web_portal'

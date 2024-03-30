@@ -1,0 +1,26 @@
+<% if vault_item.accesses.empty? %>
+  <%= t('.not_yet_granted') %>
+<% else %>
+  <table class="table">
+    <tr>
+      <th><%= t('.vault Item') %></th>
+      <th><%= t('.name') %></th>
+      <th><%= t('.email') %></th>
+      <% if vault_item.owner?(current_user)%>
+        <th><%= t('.actions') %></th>
+      <% end %>
+    </tr>
+    <% vault_item.accesses.each do |access| %>
+      <tr>
+        <td> <%= access.vault_item.title %> </td>
+        <td> <%= access.accessor.username %> </td>
+        <td> <%= access.accessor.email %> </td>
+        <% if vault_item.owner?(current_user)%>
+          <td>
+            <%= link_to t('.revoke'), vault_item_access_url(vault_item, access.id), method: :delete, data: { confirm: t('.sure') }, class: "btn-sm btn-danger" %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

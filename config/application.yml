@@ -1,0 +1,8 @@
+development:
+  secret_key: "ThisPasswordIsReallyHardToGuess!"
+
+test:
+  secret_key: "ThisPasswordIsReallyHardToGuess!"
+
+production:
+  secret_key: "ThisPasswordIsReallyHardToGuess!"

@@ -1,0 +1,10 @@
+<h3 align="center"><%= t('.vault_items') %></h3>
+<% unless @vault_items %>
+  <h3 align="center"><span ></span></h3>
+<% else %>
+  <div align="center">
+    <%= render @vault_items %>
+  </div>
+<% end %>
+<%= link_to t('.create_vault'), new_vault_item_path, class: 'btn btn-secondary'%>
+<hr>

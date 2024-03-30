@@ -1,0 +1,8 @@
+<%= form_tag verify_user_vault_item_path, method: "post" do %>
+  <div align="center">
+    <%= label_tag :password, t('.authenticate_instruction') %>
+    <div align="center">
+      <%= password_field_tag :password %>
+      <%= submit_tag t('.authenticate'), class: "btn-sm btn-primary"%>
+    </div>
+  <% end %>

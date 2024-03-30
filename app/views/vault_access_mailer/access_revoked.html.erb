@@ -1,0 +1,6 @@
+Hi <%= @vault_access.accessor.username %>
+<p> <%= t('.access_revoked') %> </p>
+<p>
+  <p><%= t('.vault_item') %> <%= @vault_access.vault_item.title %></p>
+  <p><%= t('.revoked_by') %> <%= @vault_access.granted_by.username %></p>
+</p>

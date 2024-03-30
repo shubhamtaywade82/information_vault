@@ -1,0 +1,28 @@
+<h3 align="center"><%= t('.welcome') %></h3>
+<div align="center">
+  <%= form_for :session, url: sessions_path  do |f| %>
+    <div class="form-group row">
+      <div class="col-sm-3" align="right">
+        <%= f.label :email%>
+      </div>
+      <div class="col-sm-8">
+        <%= f.email_field :email, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-3" align="right">
+        <%= f.label :password%>
+      </div>
+      <div class="col-sm-8">
+        <%= f.password_field :password, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-3"  align="right">
+      </div>
+      <div class="col-sm-8">
+        <%= f.submit t('.login'), class:"btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,2 @@
+Hi <%= @user.username %>
+<%= confirmation_url(@user.confirmation_token, email: @user.email )%>

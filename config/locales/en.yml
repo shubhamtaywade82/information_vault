@@ -1,0 +1,156 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  errors:
+    description: "The page you are looking for does not exist!"
+    heading: "Record not found"
+  users:
+    registrations:
+      new:
+        register: Register in the Information Vault
+        signup: "Sign Up"
+      create:
+        signed_up: "Welcome! You have signed up successfully."
+        signed_up_but_unconfirmed: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
+        destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+        signed_up_message: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
+        updated: "Your account has been updated successfully."
+        updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
+        register: Register
+    sessions:
+      new:
+        welcome: "Welcome to Login Page"
+        signin_required: "You must be signed in to view this page"
+        invalid: " Invalid Login or password."
+        error: "Something went wrong try again"
+        login: "Login"
+      create:
+        signed_up_but_unconfirmed: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
+        signed_in: "Signed in successfully."
+        error: "Something went wrong try again"
+      destroy:
+        signed_out: "Signed out successfully."
+        already_signed_out: "Signed out successfully."
+        error: "Something went wrong try again"
+    confirmations:
+      show:
+        account_confirmation: "Your Account is successfully Confirmed"
+        invalid: "Link is either expired or Invalid"
+    index:
+    show:
+      signin_required: "You must be signed in to view this page"
+  vault_items:
+    vault_item:
+      sure: "Are you sure?"
+      show_credentials: "Show Credentials"
+    accesses:
+      list:
+        sure: "Are you sure?"
+        revoke: "Revoke Access"
+        not_yet_granted: "No access granted to the vault yet"
+      new:
+        grant: "Grant Access"
+        grant_access: "Grant Vault Item Access"
+      index:
+        list: "Accessors list"
+      show:
+      form:
+        credentials: "Credentials"
+        new_credential: "Add New Credential"
+      create:
+        access_granted: "Access granted To the user"
+        error_occured: "Something went wrong try again"
+      destroy:
+        revoke_access_success: "Access is successfully revoked"
+      reject_item_access: "You are not allowed to perform this action!"
+    index:
+      vault_items: "Vault Items"
+      shared_vault_items: "Vault Items shared with you"
+      signin_required: "Login First"
+      show_credentials: "Show "
+    new:
+      create_vault: "Create a new Vault Item"
+      item_created_successfully: "VaultItem added successfully"
+    create:
+      error: "Something went wrong"
+      item_created_successfully: "VaultItem added successfully"
+    show:
+      vault_item: "Vault Item"
+      attribute: "Attribute"
+      value: "Value"
+      no_credentials: "No credentials added to the vault Yet"
+      add_credential: "Add Credential"
+      grant: "Grant Access to "
+      back: "Back to the list"
+      edit: "Edit Vault"
+      sure: "Are you sure?"
+      view: "View Accessors List"
+      not_yet_granted: "No access granted to the vault yet"
+    update:
+      item_update_successful: "Vault Item is updated Successfully"
+      reject_item_access: "You are not allowed to perform this action!"
+      signin_required: "You must be signed in to view this page"
+    destroy:
+      success: "Vault Item deleted Successfully!"
+    form:
+      information_title: "Enter Title of the Information here"
+      new_credential: "Add New Credential"
+    edit:
+      vault_item: "Vault Item"
+      reject_item_access: "You cannot perform this action on the Item"
+    verify:
+      authenticate: "Verify"
+      authenticate_instruction: "Verify Yourself(by Entering your Login Password here)"
+    not_found:
+      not_found: "No record found"
+  vault_access_mailer:
+    access_granted:
+      subject: "new vault item access"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              invalid: "Must have Min 8 characters with at least 1 uppercase, special character and number"
+        vault_item:
+        vault_item_access:
+          attributes:
+            expire_at:
+              invalid_expiry: "Cannot be in the past or Today"
+            accessor_id:
+              already_has_access: "This user already has the access!"
+        vault_item_credential:
+          attributes:
+            credential_attr_id:
+              only_once: "This Attribute is already used!, Use Another"
+  vault_access_mailer:
+    access_granted:
+      access_granted: "A new vault item access is been granted to you"
+      granted_by: "Granted By:"
+      vault_item: "Vault Item:"
+    access_revoked:
+      access_revoked: "You no longer have access to the Vault Item"
+      revoked_by: "Revoked By:"
+      vault_item: "Vault Item:"
+
+

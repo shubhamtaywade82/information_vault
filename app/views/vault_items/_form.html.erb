@@ -1,0 +1,19 @@
+<%= form_for vault_item do |f| %>
+  <div class="form-group">
+    <%# f.label :item_type, "Select Item Type" %>
+    <%= f.select :item_type, ItemType.to_a,{ prompt: t('select_item_type')}, { class: 'form-control shadow rounded shadow rounded' } %>
+    <small><%= vault_item.errors[:item_type].first if vault_item.errors[:item_type].any? %></small>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :title, class: "form-control shadow rounded shadow rounded", placeholder: t('.information_title') %>
+    <small><%= vault_item.errors[:title].first if vault_item.errors[:title].any? %></small>
+  </div>
+  <h3><%= t('.credentials') %></h3>
+  <div class="form-group">
+    <%= f.fields_for :vault_item_credentials do |vault_item_credential| %>
+      <%= render 'vault_item_credential_fields', f: vault_item_credential %>
+    <% end %>
+    <%= link_to_add_association t('.new_credential'), f, :vault_item_credentials, class: "btn btn-secondary" %>
+  </div>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

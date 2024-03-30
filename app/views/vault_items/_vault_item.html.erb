@@ -1,0 +1,14 @@
+<div class="card  <%= "text-white bg-secondary" unless vault_item.owner?(current_user) %> center mb-3" style="width: 18rem;">
+  <h5 class="card-header"><%= vault_item.item_type_humanize %></h5>
+  <div class="card-body">
+    <h5 class="card-title"><%= vault_item.title %></h5>
+    <% unless vault_item.owner?(current_user)%>
+      <span class="badge">Shared</span>
+    <% end %>
+    <p class="card-text"></p>
+    <%= link_to t('.show_credentials'), verify_vault_item_path(vault_item), class:"btn btn-primary" %>
+    <% if vault_item.can_be_managed_by?(current_user)%>
+      <%= link_to t('.delete'), vault_item_path(vault_item), method: :delete, data: {confirm: t('.sure')}, class:"btn btn-danger" %>
+    <% end %>
+  </div>
+</div>
